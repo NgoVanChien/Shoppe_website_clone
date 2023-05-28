@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function RegisterHeader() {
   return (
-    <header className='py-5'>
+    <header className=' py-5'>
       <div className='container'>
         <nav className='flex items-end'>
           <Link to='/'>
