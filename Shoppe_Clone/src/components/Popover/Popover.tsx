@@ -10,6 +10,7 @@ interface Props {
   initialOpen?: boolean
   placement?: Placement
 }
+
 export default function Popover({
   children,
   className,
@@ -21,13 +22,7 @@ export default function Popover({
   const [isOpen, setIsOpen] = useState(initialOpen || false)
   const arrowRef = useRef<HTMLElement>(null)
   const { refs, floatingStyles, middlewareData } = useFloating({
-    middleware: [
-      offset(8),
-      shift(),
-      arrow({
-        element: arrowRef
-      })
-    ],
+    middleware: [offset(8), shift(), arrow({ element: arrowRef })],
     placement: placement
   })
   const id = useId()
