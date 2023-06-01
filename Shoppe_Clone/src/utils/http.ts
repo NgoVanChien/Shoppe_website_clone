@@ -10,6 +10,7 @@ class Http {
   constructor() {
     // contructor chỉ chạy 1 lần duy nhất
     this.accessToken = getAccessTokenFromLS()
+    // Trick hay giúp tăng tốc độ truy xuất bộ nhớ khi lưu Access_Token vào Ram
     this.instance = axios.create({
       baseURL: 'https://api-ecom.duthanhduoc.com/',
       timeout: 10000,
