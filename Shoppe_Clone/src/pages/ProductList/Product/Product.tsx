@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import ProductRating from 'src/components/ProductRating'
 import { Product as ProductType } from 'src/types/product.type'
 import { formatCurrenty, formatNumberToSocialStyle } from 'src/utils/utils'
 
@@ -31,38 +32,7 @@ export default function Product({ product }: Props) {
           </div>
         </div>
         <div className='mt-3 flex items-center justify-end'>
-          <div className='flex items-center'>
-            <div className='relative'>
-              <div className='absolute left-0 top-0 h-full overflow-hidden' style={{ width: '50%' }}>
-                <svg
-                  enableBackground='new 0 0 15 15'
-                  viewBox='0 0 15 15'
-                  role='img'
-                  className='h-3 w-3 fill-yellow-300 text-yellow-300'
-                >
-                  <path
-                    d='m7.5.8l2.2 4.6 4.8.5-3.8 3.2 1.1 5.1-4.3-2.6-4.3 2.6 1.1-5.1-3.8-3.2 4.8-.5z'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeMiterlimit={10}
-                  />
-                </svg>
-              </div>
-              <svg
-                enableBackground='new 0 0 15 15'
-                viewBox='0 0 15 15'
-                role='img'
-                className='text-gray-300-300 h-3 w-3 fill-current text-gray-300'
-              >
-                <path
-                  d='m7.5.8l2.2 4.6 4.8.5-3.8 3.2 1.1 5.1-4.3-2.6-4.3 2.6 1.1-5.1-3.8-3.2 4.8-.5z'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeMiterlimit={10}
-                />
-              </svg>
-            </div>
-          </div>
+          <ProductRating rating={product.rating} />
           <div className='ml-2 text-sm'>
             <span>{formatNumberToSocialStyle(product.sold)}</span>
             <span className='ml-1'>Đã bán</span>
