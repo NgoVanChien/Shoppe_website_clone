@@ -8,27 +8,6 @@ interface Props {
   pageSize: number
 }
 
-/**
-Với range = 2 áp dụng cho khoảng cách đầu, cuối và xung quanh current_page
-
-[1] 2 3 ... 19 20
-1 [2] 3 4 ... 19 20 
-1 2 [3] 4 5 ... 19 20
-1 2 3 [4] 5 6 ... 19 20
-1 2 3 4 [5] 6 7 ... 19 20
-
-1 2 ... 4 5 [6] 8 9 ... 19 20
-
-1 2 ...13 14 [15] 16 17 ... 19 20
-
-
-1 2 ... 14 15 [16] 17 18 19 20
-1 2 ... 15 16 [17] 18 19 20
-1 2 ... 16 17 [18] 19 20
-1 2 ... 17 18 [19] 20
-1 2 ... 18 19 [20]
- */
-
 const RANGE = 2
 export default function Pagination({ queryConfig, pageSize }: Props) {
   const page = Number(queryConfig.page)
