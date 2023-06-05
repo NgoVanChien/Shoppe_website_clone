@@ -9,7 +9,7 @@ export default function Footer() {
           <div className='lg:col-span-2'>
             <div>
               Quốc gia & Khu vực: Singapore Indonesia Đài Loan Thái Lan Malaysia Việt Nam Philippines Brazil México
-              Colombia Chile
+              Colombia
             </div>
           </div>
         </div>
