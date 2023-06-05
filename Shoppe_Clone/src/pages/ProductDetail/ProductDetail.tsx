@@ -7,7 +7,10 @@ import productApi from 'src/apis/product.api'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Product as ProductType, ProductListConfig } from 'src/types/product.type'
 import Product from '../ProductList/components/Product'
+import QuantityController from 'src/components/QuantityControler'
+
 export default function ProductDetail() {
+  const [buyCount, setBuyCount] = useState(1)
   const { nameId } = useParams()
   const id = getIdFromNameId(nameId as string)
   const { data: productDetailData } = useQuery({
@@ -78,7 +81,12 @@ export default function ProductDetail() {
     imageRef.current?.removeAttribute('style')
   }
 
+  const handleBuyCount = (value: number) => {
+    setBuyCount(value)
+  }
+
   if (!product) return null
+
   return (
     <div className='bg-gray-200 py-6'>
       <div className='container'>
@@ -175,7 +183,16 @@ export default function ProductDetail() {
               </div>
               <div className='mt-8 flex items-center'>
                 <div className='capitalize text-gray-500'>Số lượng</div>
+                <QuantityController
+                  onIncrease={handleBuyCount}
+                  onDecrease={handleBuyCount}
+                  onType={handleBuyCount}
+                  value={buyCount}
+                  max={product.quantity}
+                />
+                <div className='test-sm ml-10 text-gray-500'>{product.quantity} Sản phẩm sẵn có</div>
               </div>
+
               <div className='mt-8 flex items-center'>
                 <button className='flex h-12 items-center justify-center rounded-sm border border-orange bg-orange/10 px-5 capitalize text-orange shadow-sm hover:bg-orange/5'>
                   <svg
