@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import InputNumber, { InputNumberProps } from '../InputNumber'
 
 interface Props extends InputNumberProps {
@@ -17,6 +18,7 @@ export default function QuantityController({
   value,
   ...rest
 }: Props) {
+  const [localValue, setLocalValue] = useState<number>(Number(value || 0))
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let _value = Number(event.target.value)
     if (max !== undefined && _value > max) {
@@ -25,6 +27,7 @@ export default function QuantityController({
       _value = 1
     }
     onType && onType(_value)
+    setLocalValue(_value)
   }
 
   const increase = () => {
@@ -33,6 +36,7 @@ export default function QuantityController({
       _value = max
     }
     onIncrease && onIncrease(_value)
+    setLocalValue(_value)
   }
 
   const decrease = () => {
@@ -41,7 +45,9 @@ export default function QuantityController({
       _value = 1
     }
     onDecrease && onDecrease(_value)
+    setLocalValue(_value)
   }
+
   return (
     <div className={' ml-10 flex items-center' + classNameWrapper}>
       <button
@@ -64,7 +70,7 @@ export default function QuantityController({
         classNameError='hidden'
         classNameInput='h-8 w-14 border-t border-b border-gray-300 p-1 text-center outline-none'
         onChange={handleChange}
-        value={value} // value được truyền và quản lý từ bên ngoài (componet cha của nó - ProductDetail), không phải được quản lý từ InputNumber nữa
+        value={value || localValue} // value được truyền và quản lý từ bên ngoài (componet cha của nó - ProductDetail), không phải được quản lý từ InputNumber nữa
         {...rest}
       />
       <button
