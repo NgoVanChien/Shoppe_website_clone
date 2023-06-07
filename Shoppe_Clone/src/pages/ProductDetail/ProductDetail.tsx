@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import DOMPurify from 'dompurify'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ProductRating from 'src/components/ProductRating'
 import { formatCurrency, formatNumberToSocialStyle, getIdFromNameId, rateSale } from 'src/utils/utils'
 import productApi from 'src/apis/product.api'
@@ -11,6 +11,7 @@ import QuantityController from 'src/components/QuantityControler'
 import purchaseApi from 'src/apis/purchase.api'
 import { purchasesStatus } from 'src/constants/purchase'
 import { toast } from 'react-toastify'
+import path from 'src/constants/path'
 
 export default function ProductDetail() {
   const queryClient = useQueryClient()
@@ -41,6 +42,7 @@ export default function ProductDetail() {
   // console.log(productsData)
 
   const addToCartMutation = useMutation(purchaseApi.addToCart)
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (product && product.images.length > 0) {
@@ -102,6 +104,16 @@ export default function ProductDetail() {
         }
       }
     )
+  }
+
+  const handleBuyNow = async () => {
+    const res = await addToCartMutation.mutateAsync({ buy_count: buyCount, product_id: product?._id as string })
+    const purchase = res.data.data
+    navigate(path.cart, {
+      state: {
+        purchaseId: purchase._id
+      }
+    })
   }
 
   if (!product) return null
@@ -242,7 +254,10 @@ export default function ProductDetail() {
                   </svg>
                   Thêm vào giỏ hàng
                 </button>
-                <button className='fkex ml-4 h-12 min-w-[5rem] items-center justify-center rounded-sm bg-orange px-5 capitalize text-white shadow-sm outline-none hover:bg-orange/90'>
+                <button
+                  className='fkex ml-4 h-12 min-w-[5rem] items-center justify-center rounded-sm bg-orange px-5 capitalize text-white shadow-sm outline-none hover:bg-orange/90'
+                  onClick={handleBuyNow}
+                >
                   Mua ngay
                 </button>
               </div>
