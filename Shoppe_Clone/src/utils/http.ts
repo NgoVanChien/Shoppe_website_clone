@@ -4,7 +4,7 @@ import HttpStatusCode from 'src/constants/httpStatusCode.enum'
 import { AuthResponse } from 'src/types/auth.type'
 
 import path from 'src/constants/path'
-import { clearFromLocalStorage, getAccessToken, saveAccessToken, saveProfile } from './auth'
+import { clearLocalStorage, getAccessToken, setAccessToken, saveProfile } from './auth'
 
 class Http {
   instance: AxiosInstance
@@ -42,11 +42,11 @@ class Http {
           // Lưu vào trong Ram
           this.accessToken = (response.data as AuthResponse).data.access_token
           // Lưu vào trong Ổ cứng
-          saveAccessToken(this.accessToken)
+          setAccessToken(this.accessToken)
           saveProfile(data.data.user)
         } else if (url === path.logout) {
           this.accessToken = ''
-          clearFromLocalStorage()
+          clearLocalStorage()
         }
         return response
       },
@@ -56,6 +56,10 @@ class Http {
           const data: any | undefined = error.response?.data
           const message = data.message || error.message
           toast.error(message)
+        }
+        if (error.response?.status === HttpStatusCode.Unauthorized) {
+          clearLocalStorage()
+          // window.location.reload()
         }
         return Promise.reject(error)
       }
