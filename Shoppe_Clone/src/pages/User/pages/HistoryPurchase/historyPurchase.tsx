@@ -1,3 +1,3 @@
-export default function historyPurchase() {
+export default function HistoryPurchase() {
   return <div>historyPurchase</div>
 }
