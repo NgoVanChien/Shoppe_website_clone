@@ -5,7 +5,13 @@ import { useMutation } from '@tanstack/react-query'
 import Input from 'src/components/Input'
 import { Schema, schema } from 'src/utils/rules'
 import authApi from 'src/apis/auth.api'
-import { omit } from 'lodash'
+
+// import { omit } from 'lodash'
+// Không có tính năng tree-shaking
+
+// Import chỉ mỗi function omit
+import omit from 'lodash/omit'
+
 import { isAxiosUnprocessableEntityError } from 'src/utils/utils'
 import { ErrorResponse } from 'src/types/utils.type'
 import { useContext } from 'react'
