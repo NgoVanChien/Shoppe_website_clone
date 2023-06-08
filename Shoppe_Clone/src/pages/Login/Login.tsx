@@ -68,6 +68,7 @@ export default function Login() {
                 register={register}
                 type='email'
                 className='mt-8'
+                classNameEye='absolute right-[5px] h-5 w-5 cursor-pointer top-[12px]'
                 errorMessage={errors.email?.message}
                 placeholder='Email'
               />
