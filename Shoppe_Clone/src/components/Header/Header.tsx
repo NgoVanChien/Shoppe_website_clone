@@ -1,27 +1,19 @@
-import { Link, createSearchParams, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Popover from '../Popover'
 import { useContext } from 'react'
 import { AppContext } from 'src/contexts/app.context'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import path from 'src/constants/path'
-import useQueryConfig from 'src/hooks/useQueryConfig'
-import { useForm } from 'react-hook-form'
-import { Schema, schema } from 'src/utils/rules'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { omit } from 'lodash'
-import { purchasesStatus } from 'src/constants/purchase'
+// import { Schema, schema } from 'src/utils/rules'
 import purchaseApi from 'src/apis/purchase.api'
 import notproduct from 'src/assets/images/not-have-product.png'
 import { formatCurrency } from 'src/utils/utils'
 import NavHeader from '../NavHeader/NavHeader'
 import useSearchProducts from 'src/hooks/useSearchProducts'
+import { purchasesStatus } from 'src/constants/purchase'
 
-type FormData = Pick<Schema, 'name'>
-
-const nameSchema = schema.pick(['name'])
 const MAX_PURCHASE = 5
 export default function Header() {
-  const navigate = useNavigate()
   const { isAuthenticated } = useContext(AppContext)
   const { onSubmitSearch, register } = useSearchProducts()
   // Khi chúng ta chuyển trang thì Header chỉ bị re-render

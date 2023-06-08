@@ -6,6 +6,7 @@ import { AppContext } from 'src/contexts/app.context'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import authApi from 'src/apis/auth.api'
 import { purchasesStatus } from 'src/constants/purchase'
+import userImage from 'src/assets/images/user.svg'
 
 export default function NavHeader() {
   const { isAuthenticated, setIsAuthenticated, setProfile, profile } = useContext(AppContext)
@@ -24,6 +25,7 @@ export default function NavHeader() {
     logoutMutation.mutate()
   }
 
+  console.log(profile)
   return (
     <div className='flex justify-end'>
       <Popover
@@ -92,11 +94,7 @@ export default function NavHeader() {
           }
         >
           <div className='mr-2 h-6 w-6 flex-shrink-0'>
-            <img
-              src='	https://down-vn.img.susercontent.com/file/sg-11134004-7qveb-lhgh1sw095d179_tn'
-              alt='avatar'
-              className='h-full w-full rounded-full object-cover'
-            />
+            <img src={profile?.avatar || userImage} alt='avatar' className='h-full w-full rounded-full object-cover' />
           </div>
           <div>{profile?.email}</div>
         </Popover>

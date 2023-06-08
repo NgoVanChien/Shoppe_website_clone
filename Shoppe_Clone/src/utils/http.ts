@@ -4,7 +4,7 @@ import HttpStatusCode from 'src/constants/httpStatusCode.enum'
 import { AuthResponse } from 'src/types/auth.type'
 
 import path from 'src/constants/path'
-import { clearLocalStorage, getAccessToken, setAccessToken, saveProfile } from './auth'
+import { clearLocalStorage, getAccessToken, setAccessToken, setProfileToLS } from './auth'
 
 class Http {
   instance: AxiosInstance
@@ -43,7 +43,7 @@ class Http {
           this.accessToken = (response.data as AuthResponse).data.access_token
           // Lưu vào trong Ổ cứng
           setAccessToken(this.accessToken)
-          saveProfile(data.data.user)
+          setProfileToLS(data.data.user)
         } else if (url === path.logout) {
           this.accessToken = ''
           clearLocalStorage()

@@ -18,13 +18,21 @@ export default function Input({
   register,
   rules,
   autoComplete,
+  type,
+  placeholder,
   classNameInput = 'w-full rounded-sm border border-gray-300 p-3 outline-none focus:border-gray-500 focus:shadow-sm',
   classNameError = 'mt-1 min-h-[1.25rem] text-sm text-red-600'
 }: Props) {
   const registerResult = register && name ? register(name, rules) : null
   return (
     <div className={className}>
-      <input className={classNameInput} {...registerResult} autoComplete={autoComplete} />
+      <input
+        className={classNameInput}
+        {...registerResult}
+        autoComplete={autoComplete}
+        type={type}
+        placeholder={placeholder}
+      />
       <div className={classNameError}>{errorMessage}</div>
     </div>
   )
