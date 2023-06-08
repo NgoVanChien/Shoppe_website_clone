@@ -50,7 +50,7 @@ export default function UserSideNav() {
           Tài khoản của tôi
         </NavLink>
         <NavLink
-          to={path.historyPurchase}
+          to={path.changePassword}
           className={({ isActive }) =>
             classNames('mt-4 flex items-center  capitalize transition-colors', {
               'text-orange': isActive,
@@ -64,7 +64,7 @@ export default function UserSideNav() {
           Đổi mật khẩu
         </NavLink>
         <NavLink
-          to={path.changePassword}
+          to={path.historyPurchase}
           className={({ isActive }) =>
             classNames('mt-4 flex items-center capitalize transition-colors', {
               'text-orange': isActive,
