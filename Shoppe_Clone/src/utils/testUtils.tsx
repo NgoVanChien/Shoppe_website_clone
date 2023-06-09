@@ -1,5 +1,9 @@
 import { screen, waitFor, type waitForOptions } from '@testing-library/dom'
+import { render } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
+import App from 'src/App'
 import { expect } from 'vitest'
+import userEvent from '@testing-library/user-event'
 
 const delay = (time: number) =>
   new Promise((resolve) => {
@@ -22,5 +26,13 @@ export const logScreen = async (
       timeout
     }
   )
-  screen.debug(body, 1234567)
+  screen.debug(body, 99999999)
+}
+
+export const renderWithRouter = ({ route = '/' } = {}) => {
+  window.history.pushState({}, 'Test page', route)
+  return {
+    user: userEvent.setup(),
+    ...render(<App />, { wrapper: BrowserRouter })
+  }
 }
