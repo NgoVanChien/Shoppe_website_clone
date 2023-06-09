@@ -73,7 +73,7 @@ export default function Profile() {
   }, [file])
   const { data: profileData, refetch } = useQuery({
     queryKey: ['profile'],
-    queryFn: userApi.getProfile
+    queryFn: userApi.getProfileFromLS
   })
   const profile = profileData?.data.data
   const updateProfileMutation = useMutation(userApi.updateProfile)

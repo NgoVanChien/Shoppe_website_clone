@@ -7,6 +7,9 @@ export const access_token_1s =
 export const refresh_token_1000days =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmY5MzVlNWZkYzVmMDM3ZTZmNjhkMyIsImVtYWlsIjoiZDNAZ21haWwuY29tIiwicm9sZXMiOlsiVXNlciJdLCJjcmVhdGVkX2F0IjoiMjAyMi0xMi0xNVQxNDowNTozNS41MTVaIiwiaWF0IjoxNjcxMTEzMTM1LCJleHAiOjE3NTc1MTMxMzV9.OHDBqBjhih1fgNe6-mWo0PQ-IcukNz4ljlXUCxM-8V8'
 
+export const access_token =
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODM2MTEwMWFmYzJlMWExZjk2OGZjZCIsImVtYWlsIjoiejJAZ21haWwuY29tIiwicm9sZXMiOlsiVXNlciJdLCJjcmVhdGVkX2F0IjoiMjAyMy0wNi0wOVQxNzozMTo0Ny40NTJaIiwiaWF0IjoxNjg2MzMxOTA3LCJleHAiOjE2ODczMzE5MDZ9.3QjVMco7iCFnmApppMwk_1lv_fyA53SeyhOEo3x-6PU'
+
 const loginRes = {
   message: 'Đăng nhập thành công',
   data: {
@@ -17,14 +20,17 @@ const loginRes = {
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmY5MzVlNWZkYzVmMDM3ZTZmNjhkMyIsImVtYWlsIjoiZDNAZ21haWwuY29tIiwicm9sZXMiOlsiVXNlciJdLCJjcmVhdGVkX2F0IjoiMjAyMi0xMi0xOVQwNDoxODowMC4wNjRaIiwiaWF0IjoxNjcxNDIzNDgwLCJleHAiOjE3NTc4MjM0ODB9.AvavrdIeU1xm2KrFeEKSiDJs260YU1uWxRzVw30MgoU',
     expires_refresh_token: 86400000,
     user: {
-      _id: '636f935e5fdc5f037e6f68d3',
+      _id: '648361101afc2e1a1f968fcd',
       roles: ['User'],
-      email: 'd3@gmail.com',
-      createdAt: '2022-11-12T12:36:46.282Z',
-      updatedAt: '2022-12-02T07:57:45.069Z',
+      email: 'z2@gmail.com',
+      createdAt: '2023-06-09T17:27:44.279Z',
+      updatedAt: '2023-06-09T17:30:53.871Z',
       __v: 0,
-      avatar: 'a59b50bf-511c-4603-ae90-3ccc63d373a9.png',
-      name: 'Dư Thanh Được'
+      address: 'VN',
+      avatar: 'f16d4549-6ed1-45bf-bb23-81a06e9a6697.jpg',
+      date_of_birth: '2002-02-19T17:00:00.000Z',
+      name: 'Otis',
+      phone: '0123456789'
     }
   }
 }

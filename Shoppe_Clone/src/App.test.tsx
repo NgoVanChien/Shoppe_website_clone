@@ -1,11 +1,8 @@
 import { describe, expect, test } from 'vitest'
 import { screen, waitFor } from '@testing-library/react'
 
-import matchers from '@testing-library/jest-dom/matchers'
-import { logScreen, renderWithRouter } from './utils/testUtils'
 import path from './constants/path'
-
-expect.extend(matchers)
+import { renderWithRouter } from './utils/testUtils'
 
 describe('App', () => {
   test('App render và chuyển trang', async () => {
@@ -41,6 +38,5 @@ describe('App', () => {
     await waitFor(() => {
       expect(screen.getByText(/Bạn đã có tài khoản?/i)).toBeInTheDocument()
     })
-    await logScreen()
   })
 })

@@ -7,7 +7,7 @@ import {
   setRefreshTokenToLS
 } from '../auth'
 
-const access_token =
+export const access_token =
   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NzYxZDkwMWFmYzJlMWExZjk2ODFmYiIsImVtYWlsIjoiekBnbWFpbC5jb20iLCJyb2xlcyI6WyJVc2VyIl0sImNyZWF0ZWRfYXQiOiIyMDIzLTA2LTA5VDA1OjUzOjQ2LjM5MloiLCJpYXQiOjE2ODYyOTAwMjYsImV4cCI6MTY4NjM3NjQyNn0.4r-VFGVpSkilS21QNxZDlXFInvG7kHr725PwK-CbTJ0'
 
 const refresh_token =

@@ -8,7 +8,7 @@ interface BodyUpdateProfile extends Omit<User, '_id' | 'roles' | 'createdAt' | '
 }
 
 const userApi = {
-  getProfile() {
+  getProfileFromLS() {
     return http.get<SuccessResponse<User>>('me')
   },
   updateProfile(body: BodyUpdateProfile) {
