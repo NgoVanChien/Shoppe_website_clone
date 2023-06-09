@@ -10,7 +10,9 @@
     "lint": "eslint --ext ts,tsx src/",
     "lint:fix": "eslint --fix --ext ts,tsx src/",
     "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.css|*.scss)\"",
-    "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.css|*.scss)\""
+    "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.css|*.scss)\"",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@floating-ui/react": "^0.24.2",
@@ -38,6 +40,7 @@
   "devDependencies": {
     "@types/dompurify": "^3.0.2",
     "@types/html-to-text": "^9.0.1",
+    "@types/jsdom": "^21.1.1",
     "@types/lodash": "^4.14.195",
     "@types/node": "^20.2.5",
     "@types/react": "^18.0.28",
@@ -54,12 +57,14 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "jsdom": "^22.1.0",
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "rollup-plugin-visualizer": "^5.9.0",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "vitest": "^0.32.0"
   }
 }
