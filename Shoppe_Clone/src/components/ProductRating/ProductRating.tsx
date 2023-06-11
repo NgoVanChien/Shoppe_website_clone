@@ -16,7 +16,6 @@ export default function ProductRating({
     }
     return '0%'
   }
-
   return (
     <div className='flex items-center'>
       {Array(5)
@@ -24,18 +23,18 @@ export default function ProductRating({
         .map((_, index) => (
           <div className='relative' key={index}>
             <div className='absolute left-0 top-0 h-full overflow-hidden' style={{ width: handleWidth(index + 1) }}>
-              <svg enableBackground='new 0 0 15 15' viewBox='0 0 15 15' role='img' className={activeClassname}>
-                <path
-                  d='m7.5.8l2.2 4.6 4.8.5-3.8 3.2 1.1 5.1-4.3-2.6-4.3 2.6 1.1-5.1-3.8-3.2 4.8-.5z'
+              <svg enableBackground='new 0 0 15 15' viewBox='0 0 15 15' x={0} y={0} className={activeClassname}>
+                <polygon
+                  points='7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4'
                   strokeLinecap='round'
                   strokeLinejoin='round'
                   strokeMiterlimit={10}
                 />
               </svg>
             </div>
-            <svg enableBackground='new 0 0 15 15' viewBox='0 0 15 15' role='img' className={nonActiveClassname}>
-              <path
-                d='m7.5.8l2.2 4.6 4.8.5-3.8 3.2 1.1 5.1-4.3-2.6-4.3 2.6 1.1-5.1-3.8-3.2 4.8-.5z'
+            <svg enableBackground='new 0 0 15 15' viewBox='0 0 15 15' x={0} y={0} className={nonActiveClassname}>
+              <polygon
+                points='7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4'
                 strokeLinecap='round'
                 strokeLinejoin='round'
                 strokeMiterlimit={10}

@@ -125,7 +125,7 @@ export default function ProductDetail() {
   return (
     <div className='bg-gray-200 py-6'>
       <Helmet>
-        <title>{product.name} | Shopee Clone </title>
+        <title>{product.name} | Shopee Clone</title>
         <meta
           name='description'
           content={convert(product.description, {
@@ -137,8 +137,8 @@ export default function ProductDetail() {
       </Helmet>
       <div className='container'>
         <div className='bg-white p-4 shadow'>
-          <div className='grid grid-cols-12 gap-9'>
-            <div className='col-span-5'>
+          <div className='grid grid-cols-12 lg:gap-9'>
+            <div className='col-span-12 md:col-span-5'>
               <div
                 className='relative w-full cursor-zoom-in overflow-hidden pt-[100%] shadow'
                 onMouseMove={handleZoom}
@@ -147,7 +147,7 @@ export default function ProductDetail() {
                 <img
                   src={activeImage}
                   alt={product.name}
-                  className='pointer-events-none absolute left-0 top-0 h-full w-full bg-white object-cover'
+                  className='absolute left-0 top-0 h-full w-full bg-white object-cover'
                   ref={imageRef}
                 />
               </div>
@@ -170,13 +170,7 @@ export default function ProductDetail() {
                 {currentImages.map((img) => {
                   const isActive = img === activeImage
                   return (
-                    <div
-                      className='relative w-full pt-[100%]'
-                      key={img}
-                      onMouseEnter={() => {
-                        chooseActive(img)
-                      }}
-                    >
+                    <div className='relative w-full pt-[100%]' key={img} onMouseEnter={() => chooseActive(img)}>
                       <img
                         src={img}
                         alt={product.name}
@@ -203,7 +197,7 @@ export default function ProductDetail() {
                 </button>
               </div>
             </div>
-            <div className='col-span-7'>
+            <div className='col-span-12 md:col-span-7'>
               <h1 className='text-xl font-medium uppercase'>{product.name}</h1>
               <div className='mt-8 flex items-center'>
                 <div className='flex items-center'>
@@ -217,21 +211,21 @@ export default function ProductDetail() {
                 <div className='mx-4 h-4 w-[1px] bg-gray-300'></div>
                 <div>
                   <span>{formatNumberToSocialStyle(product.sold)}</span>
-                  <span className='ml-1 text-gray-500'>{t('product:sold')}</span>
+                  <span className='ml-1 text-gray-500'>Đã bán</span>
                 </div>
               </div>
-              <div className='mt-8 flex items-center bg-gray-50 px-5 py-4'>
+              <div className='mt-8 flex flex-col items-center bg-gray-50 px-5 py-4 md:flex-row'>
                 <div className='text-gray-500 line-through'>₫{formatCurrency(product.price_before_discount)}</div>
                 <div className='ml-3 text-3xl font-medium text-orange'>₫{formatCurrency(product.price)}</div>
                 <div className='ml-4 rounded-sm bg-orange px-1 py-[2px] text-xs font-semibold uppercase text-white'>
                   {rateSale(product.price_before_discount, product.price)} giảm
                 </div>
               </div>
-              <div className='mt-8 flex items-center'>
-                <div className='capitalize text-gray-500'>{t('product:quantity')}</div>
+              <div className='mt-8 flex flex-col items-center md:flex-row'>
+                <div className='capitalize text-gray-500'>Số lượng</div>
                 <QuantityController
-                  onIncrease={handleBuyCount}
                   onDecrease={handleBuyCount}
+                  onIncrease={handleBuyCount}
                   onType={handleBuyCount}
                   value={buyCount}
                   max={product.quantity}
@@ -240,11 +234,10 @@ export default function ProductDetail() {
                   {product.quantity} {t('product:available')}
                 </div>
               </div>
-
               <div className='mt-8 flex items-center'>
                 <button
                   onClick={addToCart}
-                  className='flex h-12 items-center justify-center rounded-sm border border-orange bg-orange/10 px-5 capitalize text-orange shadow-sm hover:bg-orange/5'
+                  className='flex h-12 items-center justify-center rounded-sm border border-orange bg-orange/10 px-5 text-sm capitalize text-orange shadow-sm hover:bg-orange/5 md:text-base'
                 >
                   <svg
                     enableBackground='new 0 0 15 15'
@@ -272,8 +265,8 @@ export default function ProductDetail() {
                   Thêm vào giỏ hàng
                 </button>
                 <button
-                  className='fkex ml-4 h-12 min-w-[5rem] items-center justify-center rounded-sm bg-orange px-5 capitalize text-white shadow-sm outline-none hover:bg-orange/90'
                   onClick={handleBuyNow}
+                  className='ml-4 flex h-12 min-w-[5rem] items-center justify-center rounded-sm bg-orange px-5 text-sm capitalize text-white shadow-sm outline-none hover:bg-orange/90 md:text-base'
                 >
                   Mua ngay
                 </button>
@@ -285,7 +278,7 @@ export default function ProductDetail() {
       <div className='mt-8'>
         <div className='container'>
           <div className=' bg-white p-4 shadow'>
-            <div className='rounded bg-gray-50 p-4 text-lg uppercase text-slate-700'>Mô tả sản phẩm</div>
+            <div className='rounded bg-gray-50 p-4 text-lg capitalize text-slate-700'>Mô tả sản phẩm</div>
             <div className='mx-4 mb-4 mt-12 text-sm leading-loose'>
               <div
                 dangerouslySetInnerHTML={{
@@ -296,9 +289,10 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
+
       <div className='mt-8'>
         <div className='container'>
-          <div className='uppercase text-gray-400'>có thể bạn cũng thích </div>
+          <div className='uppercase text-gray-400'>CÓ THỂ BẠN CŨNG THÍCH</div>
           {productsData && (
             <div className='mt-6 grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'>
               {productsData.data.data.products.map((product) => (

@@ -7,7 +7,7 @@ interface Props {
   queryConfig: QueryConfig
 }
 
-export default function RatingStarts({ queryConfig }: Props) {
+export default function RatingStars({ queryConfig }: Props) {
   const navigate = useNavigate()
 
   const handleFilterStar = (ratingFilter: number) => {
@@ -29,8 +29,8 @@ export default function RatingStarts({ queryConfig }: Props) {
             <div
               className='flex cursor-pointer items-center text-sm'
               onClick={() => handleFilterStar(5 - index)}
-              role='button'
               tabIndex={0}
+              role='button'
               aria-hidden='true'
             >
               {Array(5)
@@ -38,7 +38,7 @@ export default function RatingStarts({ queryConfig }: Props) {
                 .map((_, indexStar) => {
                   if (indexStar < 5 - index) {
                     return (
-                      <svg key={indexStar} viewBox='0 0 9.5 8' className='mr-1 h-4 w-4'>
+                      <svg viewBox='0 0 9.5 8' className='mr-1 h-4 w-4' key={indexStar}>
                         <defs>
                           <linearGradient id='ratingStarGradient' x1='50%' x2='50%' y1='0%' y2='100%'>
                             <stop offset={0} stopColor='#ffca11' />
@@ -83,7 +83,7 @@ export default function RatingStarts({ queryConfig }: Props) {
                     </svg>
                   )
                 })}
-              {index !== 0 && <span>trở lên</span>}
+              {index !== 0 && <span>Trở lên</span>}
             </div>
           </li>
         ))}

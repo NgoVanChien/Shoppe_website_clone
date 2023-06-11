@@ -12,8 +12,8 @@ import { produce } from 'immer'
 import keyBy from 'lodash/keyBy'
 import { toast } from 'react-toastify'
 import { AppContext } from 'src/contexts/app.context'
-import notproduct from 'src/assets/images/not-have-product.png'
 import { Helmet } from 'react-helmet-async'
+import notproduct from 'src/assets/images/not-have-product.png'
 
 export default function Cart() {
   const { extendedPurchases, setExtendedPurchases } = useContext(AppContext)
@@ -145,7 +145,7 @@ export default function Cart() {
     <div className='bg-neutral-100 py-16'>
       <Helmet>
         <title>Giỏ hàng | Shopee Clone</title>
-        <meta name='description' content='Trang Giỏ hàng Shopee Clone' />
+        <meta name='description' content='Trang giỏ hàng wwbsite Shopee Clone' />
       </Helmet>
       <div className='container'>
         {extendedPurchases.length > 0 ? (
@@ -177,7 +177,7 @@ export default function Cart() {
                 </div>
                 {extendedPurchases.length > 0 && (
                   <div className='my-3 rounded-sm bg-white p-5 shadow'>
-                    {extendedPurchases?.map((purchase, index) => (
+                    {extendedPurchases.map((purchase, index) => (
                       <div
                         key={purchase._id}
                         className='mb-5 grid grid-cols-12 items-center rounded-sm border border-gray-200 bg-white px-4 py-5 text-center text-sm text-gray-500 first:mt-0'
@@ -195,7 +195,7 @@ export default function Cart() {
                             <div className='flex-grow'>
                               <div className='flex'>
                                 <Link
-                                  className='h-20 w-20 flex-shrink-0 '
+                                  className='h-20 w-20 flex-shrink-0'
                                   to={`${path.home}${generateNameId({
                                     name: purchase.product.name,
                                     id: purchase.product._id
@@ -280,7 +280,7 @@ export default function Cart() {
                   />
                 </div>
                 <button className='mx-3 border-none bg-none' onClick={handleCheckAll}>
-                  Chọn tất cả({extendedPurchases.length})
+                  Chọn tất cả ({extendedPurchases.length})
                 </button>
                 <button className='mx-3 border-none bg-none' onClick={handleDeleteManyPurchases}>
                   Xóa

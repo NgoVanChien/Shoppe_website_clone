@@ -8,10 +8,11 @@ import { useForm, Controller } from 'react-hook-form'
 import { Schema, schema } from 'src/utils/rules'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { NoUndefinedField } from 'src/types/utils.type'
-import RatingStarts from '../RatingStarts'
+// import RatingStars from '../RatingStars'
 import omit from 'lodash/omit'
 import { QueryConfig } from 'src/hooks/useQueryConfig'
 import { useTranslation } from 'react-i18next'
+import RatingStars from '../RatingStars'
 
 interface Props {
   queryConfig: QueryConfig
@@ -65,6 +66,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
       search: createSearchParams(omit(queryConfig, ['category', 'price_min', 'price_max', 'rating_filter'])).toString()
     })
   }
+
   return (
     <div className='py-4'>
       <Link
@@ -102,7 +104,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
                     category: categoryItem._id
                   }).toString()
                 }}
-                className={classNames('relative px-2  ', {
+                className={classNames('relative px-2', {
                   'font-semibold text-orange': isActive
                 })}
               >
@@ -116,12 +118,6 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
             </li>
           )
         })}
-
-        {/* <li className='py-2 pl-2'>
-          <Link to={path.home} className='relative px-2 '>
-            Áo khoác
-          </Link>
-        </li> */}
       </ul>
       <Link to={path.home} className='mt-4 flex items-center font-bold uppercase'>
         <svg
@@ -157,19 +153,30 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
                     type='text'
                     className='grow'
                     placeholder='₫ TỪ'
-                    classNameInput='w-full rounded-sm border border-gray-300 p-1 outline-none focus:border-gray-500 focus:shadow-sm'
+                    classNameInput='p-1 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm'
                     classNameError='hidden'
                     {...field}
                     onChange={(event) => {
                       field.onChange(event)
                       trigger('price_max')
                     }}
-                    // value={field.value}
-                    // ref={field.ref}
                   />
                 )
               }}
             />
+            {/* <InputV2
+              control={control}
+              name='price_min'
+              type='number'
+              className='grow'
+              placeholder='₫ TỪ'
+              classNameInput='p-1 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm'
+              classNameError='hidden'
+              onChange={() => {
+                trigger('price_max')
+              }}
+            /> */}
+
             <div className='mx-2 mt-2 shrink-0'>-</div>
             <Controller
               control={control}
@@ -179,8 +186,8 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
                   <InputNumber
                     type='text'
                     className='grow'
-                    placeholder='₫ ĐẾN '
-                    classNameInput='w-full rounded-sm border border-gray-300 p-1 outline-none focus:border-gray-500 focus:shadow-sm'
+                    placeholder='₫ ĐẾN'
+                    classNameInput='p-1 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm'
                     classNameError='hidden'
                     {...field}
                     onChange={(event) => {
@@ -193,20 +200,20 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
             />
           </div>
           <div className='mt-1 min-h-[1.25rem] text-center text-sm text-red-600'>{errors.price_min?.message}</div>
-          <Button className='flex w-full items-center justify-center  bg-orange p-2 text-sm uppercase  text-white hover:bg-orange/80 '>
+          <Button className='flex w-full items-center justify-center bg-orange p-2 text-sm uppercase text-white hover:bg-orange/80'>
             Áp dụng
           </Button>
         </form>
       </div>
       <div className='my-4 h-[1px] bg-gray-300' />
       <div className='text-sm'>Đánh giá</div>
-      <RatingStarts queryConfig={queryConfig} />
+      <RatingStars queryConfig={queryConfig} />
       <div className='my-4 h-[1px] bg-gray-300' />
       <Button
-        className='flex w-full items-center justify-center  bg-orange p-2 text-sm uppercase  text-white hover:bg-orange/80 '
         onClick={handleRemoveAll}
+        className='flex w-full items-center justify-center bg-orange p-2 text-sm uppercase text-white hover:bg-orange/80'
       >
-        Xoá tất cả
+        Xóa tất cả
       </Button>
     </div>
   )

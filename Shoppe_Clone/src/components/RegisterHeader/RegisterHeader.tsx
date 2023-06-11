@@ -1,11 +1,10 @@
 import { Link, useMatch } from 'react-router-dom'
 
 export default function RegisterHeader() {
-  const registerMathh = useMatch('/register')
-  const isRegister = Boolean(registerMathh)
-  // console.log(registerMathh)
+  const registerMatch = useMatch('/register')
+  const isRegister = Boolean(registerMatch)
   return (
-    <header className=' py-5'>
+    <header className='py-5'>
       <div className='container'>
         <nav className='flex items-end'>
           <Link to='/'>

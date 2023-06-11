@@ -83,7 +83,7 @@ export default function Register() {
     <div className='bg-orange'>
       <Helmet>
         <title>Đăng ký | Shopee Clone</title>
-        <meta name='description' content='Đăng ký tài khoản vào trang web Shopee Clone' />
+        <meta name='description' content='Đăng ký tài khoản vào dự án Shopee Clone' />
       </Helmet>
       <div className='container'>
         <div className='grid grid-cols-1 py-12 lg:grid-cols-5 lg:py-32 lg:pr-10'>
@@ -108,6 +108,7 @@ export default function Register() {
                 placeholder='Password'
                 autoComplete='on'
               />
+
               <Input
                 name='confirm_password'
                 register={register}
@@ -118,10 +119,10 @@ export default function Register() {
                 placeholder='Confirm Password'
                 autoComplete='on'
               />
+
               <div className='mt-2'>
                 <Button
-                  type='submit'
-                  className='flex  w-full items-center justify-center bg-red-500 px-2 py-4 text-sm uppercase text-white hover:bg-red-600'
+                  className='flex w-full items-center justify-center bg-red-500 px-2 py-4 text-sm uppercase text-white hover:bg-red-600'
                   isLoading={registerAccountMutation.isLoading}
                   disabled={registerAccountMutation.isLoading}
                 >
