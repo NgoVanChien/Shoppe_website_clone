@@ -46,7 +46,7 @@ export default function Header() {
               <input
                 type='text'
                 className='w-full flex-grow border-none bg-transparent p-1 text-sm text-black outline-none md:px-3 md:py-2 md:text-base'
-                placeholder='Free Ship Đơn Từ 0Đ'
+                placeholder='#shopxuhuong HÀNG XỊN SALE 50%'
                 {...register('name')}
               />
               <button className='flex-shrink-0 rounded-sm bg-orange  px-3 py-1 hover:opacity-90 md:px-6 md:py-2'>
@@ -70,7 +70,7 @@ export default function Header() {
           <div className='ml-auto'>
             <Popover
               renderPopover={
-                <div className='relative rounded-sm border border-gray-200 bg-white text-sm shadow-md'>
+                <div className='relative max-w-[250px] rounded-sm border border-gray-200 bg-white text-sm shadow-md md:max-w-[400px]'>
                   {purchasesInCart && purchasesInCart.length > 0 ? (
                     <div className='p-2'>
                       <div className='capitalize text-gray-400'>Sản phẩm mới thêm</div>
