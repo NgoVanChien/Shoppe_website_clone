@@ -1,3 +1,3 @@
-import RatingStars from './RatingStarts'
+import RatingStars from './RatingStars'
 
 export default RatingStars
