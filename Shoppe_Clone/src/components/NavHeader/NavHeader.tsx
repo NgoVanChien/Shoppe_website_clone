@@ -12,6 +12,7 @@ import { locales } from 'src/i18n/i18n'
 
 export default function NavHeader() {
   const { i18n } = useTranslation()
+  // const { i18n } = useTranslation(['home', 'product'])
   const currentLanguage = locales[i18n.language as keyof typeof locales]
 
   const { setIsAuthenticated, isAuthenticated, setProfile, profile } = useContext(AppContext)

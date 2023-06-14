@@ -130,7 +130,6 @@ export default function Profile() {
       setProfileToLS(res.data.data)
       refetch()
       toast.success(res.data.message, {
-        position: 'top-center',
         autoClose: 1500
       })
     } catch (error) {

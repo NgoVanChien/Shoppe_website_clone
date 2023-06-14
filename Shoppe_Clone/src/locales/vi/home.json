@@ -1,6 +1,32 @@
 {
   "aside filter": {
     "all categories": "Tất cả danh mục",
-    "filter search": "Bộ lọc tìm kiếm"
+    "filter search": "Bộ lọc tìm kiếm",
+    "t-shirt": "Áo thun",
+    "watch": "Đồng hồ ",
+    "smart phone": "Điện thoại",
+    "from": "Từ",
+    "to": "Đến",
+    "price range": "Khoảng giá",
+    "apply": "Áp dụng",
+    "evaluate": "Đánh giá",
+    "and up": "Trở lên",
+    "remove all": "Xóa tất cả"
+  },
+  "sort productlist": {
+    "sort by": "Sắp xếp theo",
+    "popular": "Phổ Biến",
+    "newest": "Mới Nhất",
+    "best-selling": "Bán chạy",
+    "price": "Giá",
+    "price: low to high": "Giá: Thấp đến cao",
+    "price: high to low": "Giá: cao đến Thấp"
+  },
+  "product": {
+    "sold": "Đã bán"
+  },
+  "pagination": {
+    "prev": "Trước",
+    "next": "Tiếp"
   }
 }

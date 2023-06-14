@@ -8,7 +8,6 @@ import { useForm, Controller } from 'react-hook-form'
 import { Schema, schema } from 'src/utils/rules'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { NoUndefinedField } from 'src/types/utils.type'
-// import RatingStars from '../RatingStars'
 import omit from 'lodash/omit'
 import { QueryConfig } from 'src/hooks/useQueryConfig'
 import { useTranslation } from 'react-i18next'
@@ -114,6 +113,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
                   </svg>
                 )}
                 {categoryItem.name}
+                {/* {t('aside filter.t-shirt')} */}
               </Link>
             </li>
           )
@@ -141,7 +141,8 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
       </Link>
       <div className='my-4 h-[1px] bg-gray-300' />
       <div className='my-5'>
-        <div>Khoảng giá</div>
+        {/* <div>Khoảng giá</div> */}
+        <div>{t('aside filter.price range')}</div>
         <form className='mt-2' onSubmit={onSubmit}>
           <div className='flex items-start'>
             <Controller
@@ -164,18 +165,6 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
                 )
               }}
             />
-            {/* <InputV2
-              control={control}
-              name='price_min'
-              type='number'
-              className='grow'
-              placeholder='₫ TỪ'
-              classNameInput='p-1 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm'
-              classNameError='hidden'
-              onChange={() => {
-                trigger('price_max')
-              }}
-            /> */}
 
             <div className='mx-2 mt-2 shrink-0'>-</div>
             <Controller
@@ -201,19 +190,21 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
           </div>
           <div className='mt-1 min-h-[1.25rem] text-center text-sm text-red-600'>{errors.price_min?.message}</div>
           <Button className='flex w-full items-center justify-center bg-orange p-2 text-sm uppercase text-white hover:bg-orange/80'>
-            Áp dụng
+            {/* Áp dụng */}
+            {t('aside filter.apply')}
           </Button>
         </form>
       </div>
       <div className='my-4 h-[1px] bg-gray-300' />
-      <div className='text-sm'>Đánh giá</div>
+      <div className='text-sm'>{t('aside filter.evaluate')}</div>
       <RatingStars queryConfig={queryConfig} />
       <div className='my-4 h-[1px] bg-gray-300' />
       <Button
         onClick={handleRemoveAll}
         className='flex w-full items-center justify-center bg-orange p-2 text-sm uppercase text-white hover:bg-orange/80'
       >
-        Xóa tất cả
+        {/* Xóa tất cả */}
+        {t('aside filter.remove all')}
       </Button>
     </div>
   )

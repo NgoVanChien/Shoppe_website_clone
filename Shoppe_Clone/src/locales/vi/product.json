@@ -1,5 +1,10 @@
 {
   "sold": "Đã bán",
   "quantity": "Số lượng",
-  "available": "Sản phẩm có sẵn"
+  "decrease": "Giảm",
+  "available": "Sản phẩm có sẵn",
+  "add_to_cart": "Thêm vào giỏ hàng",
+  "buy_now": "Mua Ngay",
+  "product_description": "Mô Tả Sản phẩm",
+  "you_may_also_like": "có thể bạn cũng thích"
 }

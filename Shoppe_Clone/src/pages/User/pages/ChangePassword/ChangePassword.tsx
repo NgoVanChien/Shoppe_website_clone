@@ -37,7 +37,6 @@ export default function ChangePassword() {
     try {
       const res = await updateProfileMutation.mutateAsync(omit(data, ['confirm_password']))
       toast.success(res.data.message, {
-        position: 'top-center',
         autoClose: 1500
       })
       reset()

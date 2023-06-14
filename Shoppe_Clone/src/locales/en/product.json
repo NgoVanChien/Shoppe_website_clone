@@ -1,5 +1,10 @@
 {
   "sold": "Sold",
   "quantity": "Quantity",
-  "available": "Available products"
+  "decrease": "Decrease",
+  "available": "Available products",
+  "add_to_cart": "Add To cart",
+  "buy_now": "Buy Now",
+  "product_description": "Product Description",
+  "you_may_also_like": "You may also like"
 }
